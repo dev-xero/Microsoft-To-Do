@@ -1,0 +1,1875 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Oxygen", sans-serif;
+  box-sizing: border-box;
+  /* transition: 0.15s all ease-in-out;
+  -webkit-transition: 0.15s all ease-in-out;
+  -moz-transition: 0.15s all ease-in-out;
+  -ms-transition: 0.15s all ease-in-out;
+  -o-transition: 0.15s all ease-in-out; */
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+.app-component.hidden {
+  display: none;
+}
+
+/* Loader */
+
+.app-framework.dark > .loader-container {
+  background: #1F1F20;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #FFFFFF;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+}
+
+.loader-container.load-hidden {
+  display: none;
+}
+
+.loader-container .loader-box {
+  width: 600px;
+  text-align: center;
+}
+
+.loader-container img.loader-img {
+  max-width: 192px;
+}
+
+.loader-container .ms-logo-box {
+  margin-top: 24px;
+}
+
+.loader-container img.ms-logo {
+  max-width: 104px;
+}
+
+.loader-container .loader-spinner {
+  position: relative;
+  width: 600px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.app-framework.dark > .loader-container .loader-spinner .spinner-outer {
+  border: 2px solid #37373B;
+  border-top: 2px solid #2B6EFF;
+}
+
+.loader-container .loader-spinner .spinner-outer {
+  width: 76px;
+  height: 76px;
+  border: 2px solid #EEEEEF;
+  border-top: 2px solid #2B6EFF;
+  margin-top: 32px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  animation: spin infinity;
+  -webkit-animation: spin 1s infinite;
+}
+
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+
+}
+
+/* App Interface */
+
+.app-interface {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.app-interface .app-sidebar {
+  width: 25%;
+  background: #FFFFFF;
+  border-right: 1px solid #EEEEEF;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar {
+  background: #1F1F20;
+  border-right-color: #222223;
+}
+
+.app-interface .app-sidebar h2.app-s-title {
+  font-size: 0.98em;
+  color: #99999A;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: "Average sans", sans-serif;
+  padding: 10px;
+}
+
+.app-interface .app-sidebar .top-sidebar {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 104;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile {
+  display: flex;
+  position: relative;
+  padding: 10px;
+  width: calc(100% - 63px);
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-profile .userSetting {
+  background: #222223;
+  border-color: #1F1F20;
+} 
+
+.app-interface .app-sidebar .top-sidebar .app-profile .userSetting {
+  position: absolute;
+  bottom: -80px;
+  left: 20px;
+  background: #FFFFFF;
+  border: 1px solid #EEEEEF;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transform: scaleY(0);
+  -webkit-transform: scaleY(0);
+  -moz-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  -o-transform: scaleY(0);
+  transform-origin: top;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile .userSetting.user-visible {
+  transform: scaleY(1);
+  -webkit-transform: scaleY(1);
+  -moz-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  transition: all 0.1s ease-out !important;
+  -webkit-transition: all 0.1s ease-out !important;
+  -moz-transition: all 0.1s ease-out !important;
+  -ms-transition: all 0.1s ease-out !important;
+  -o-transition: all 0.1s ease-out !important;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-profile .userSetting li {
+  color: #DDDDDE;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile .userSetting li {
+  list-style: none;
+  font-size: 0.92em;
+  color: #333334;
+  font-weight: 400 !important;
+  letter-spacing: 0.86px;
+  font-family: "system-ui", sans-serif;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-profile .userSetting li:first-child {
+  border-color: #1C1C1D;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile .userSetting li:first-child {
+  border-bottom: 1px solid #EEEEEF;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-profile .userSetting li:hover {
+  background: #333334;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile .userSetting li:hover {
+  background: #F9F9FA;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-profile:hover {
+  background: #29292A;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile:hover {
+  background: #F9F9FA;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile .appuser-img {
+  width: 32px;
+  max-width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile img.userimg {
+  width: 32px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile .user-info {
+  margin-left: 12px;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-profile .user-info h4.username {
+  color: #DDDDDE;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile .user-info h4.username {
+  color: #333334;
+  font-family: "Open sans", sans-serif;
+  font-size: 1em;
+  letter-spacing: 0.8px;
+  font-weight: 400;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile .user-info i.network-bubble {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  /* background: #ffbe31; */
+  /* background: #5fe487; */
+  margin-right: 2px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-profile .user-info p.network-status {
+  color: #99999A;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-profile .user-info p.network-status {
+  color: #777778;
+  font-family: "Open sans", sans-serif;
+  font-size: 0.86em;
+  letter-spacing: 0.8px;
+  font-weight: 400;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-search {
+  color: #EEEEEF;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-search {
+  font-size: 1em;
+  width: 63px;
+  height: 63px;
+  line-height: 66px;
+  text-align: center;
+  text-align: center;
+  color: #333334;
+  cursor: pointer;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-search:hover {
+  background: #29292A;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-search:hover {
+  background: #F9F9FA;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .top-sidebar .app-search.search-app {
+  background: #222223;
+}
+
+.app-interface .app-sidebar .top-sidebar .app-search.search-app {
+  background: #EEEEEF;
+}
+
+.app-interface .app-sidebar .taskbar-options {
+  padding-bottom: 8px;
+  position: relative;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .taskbar-options::before {
+  background: #333334;
+}
+
+.app-interface .app-sidebar .taskbar-options::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: calc(100% - 12px);
+  margin: 0 6px;
+  background: #E9E9EA;
+}
+
+.app-interface .app-sidebar .taskbar-options li {
+  padding: 10px 6px;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .taskbar-options li:hover {
+  background: #29292A;
+}
+
+.app-interface .app-sidebar .taskbar-options li:hover {
+  background: #F9F9FA;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .taskbar-options li p {
+  color: #DDDDDE;
+}
+
+.app-interface .app-sidebar .taskbar-options li p {
+  padding: 8px 14px;
+  color: #333334;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1em;
+  letter-spacing: 0.8px;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .taskbar-options li.active  {
+  background: #29292A;
+}
+
+.app-interface .app-sidebar .taskbar-options li.active {
+  background: #F9F9FA;
+}
+
+.app-interface .app-sidebar .taskbar-options li.active p {
+  border-left: 2px solid #2B6EFF;
+}
+
+.app-framework.dark > .app-component .app-interface .app-sidebar .taskbar-options li p i {
+  color: #99999A;
+}
+
+.app-interface .app-sidebar .taskbar-options li p i {
+  font-size: 1.1em;
+  color: #666667;
+}
+
+.app-interface .app-sidebar .taskbar-options li.active p i {
+  color: #2B6EFF;
+}
+
+.app-interface .app-body {
+  position: relative;
+  width: 75%;
+  padding: 10px;
+  /* background-image: url("../img/app-bg/groot-w.jpg"); */
+  background-position: center;
+  background-size: cover;
+}
+
+.app-interface .app-body .body-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.app-interface .app-body .body-head .head-title {
+  font-size: 1.2em;
+  color: #FFFFFF;
+}
+
+.app-interface .app-body .body-head .head-title p {
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: "Open sans", sans-serif !important;
+  color: #FFFFFF;
+}
+
+.app-interface .app-body .body-head .head-option {
+  font-size: 1.2em;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  text-align: center;
+  color: #FFFFFF;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  cursor: pointer;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body .body-head .head-option:hover {
+  background: #37373B40;
+}
+
+.app-interface .app-body .body-head .head-option:hover {
+  background: #FFFFFF40;
+  backdrop-filter: blur(20px);
+}
+
+.app-interface .app-body ul.body-tasks {
+  /* border: 2px solid red; */
+  margin-top: 24px;
+  width: 100%;
+  height: calc(80vh - 6px);
+  padding-right: 12px;
+  overflow-y: auto;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body ul.body-tasks::-webkit-scrollbar-thumb {
+  background: #777778;
+}
+
+.app-interface .app-body ul.body-tasks::-webkit-scrollbar {
+  width: 4px;
+  visibility: hidden;
+}
+
+.app-interface .app-body ul.body-tasks::-webkit-scrollbar-thumb {
+  width: 4px;
+  background: #E9E9EA;
+  opacity: 0.6;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  visibility: hidden;
+  transition: all 0.15s linear !important;
+  -webkit-transition: all 0.15s linear !important;
+  -moz-transition: all 0.15s linear !important;
+  -ms-transition: all 0.15s linear !important;
+  -o-transition: all 0.15s linear !important;
+}
+
+.app-interface .app-body ul.body-tasks:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body ul.body-tasks li.task {
+  background: #29292A;
+  color: #DDDDDE;
+}
+
+.app-interface .app-body ul.body-tasks li.task {
+  background: #FFFFFF;
+  list-style: none;
+  font-size: 0.92em;
+  color: #333334;
+  font-weight: 400 !important;
+  letter-spacing: 0.86px;
+  font-family: "Open sans", sans-serif;
+  padding: 16px 24px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  margin-bottom: 4px;
+  cursor: default;
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body ul.body-tasks li.task:hover {
+  background: #37373B;
+}
+
+.app-interface .app-body ul.body-tasks li.task:hover {
+  background: #F9F9FA;
+}
+
+.app-interface .app-body ul.body-tasks li.task .task-inner.checked {
+  text-decoration: line-through;
+  color: #99999A;
+  text-decoration-color: #777778;
+  -moz-text-decoration-color: #777778;
+}
+
+.app-interface .app-body ul.body-tasks li.task .task-inner {
+  display: flex;
+  align-items: flex-start;
+}
+
+.app-interface .app-body ul.body-tasks li.task i.task-options {
+  width: 2.5%;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.app-interface .app-body ul.body-tasks li.task i.task-options.bi-check-circle-fill {
+  color: #16ECC9;
+}
+
+.app-interface .app-body ul.body-tasks li.task i.task-options.bi-star-fill {
+  color: #FFE367;
+}
+
+.app-interface .app-body ul.body-tasks li.task i.task-options.bx-trash {
+  color: #49484d;
+}
+
+.app-interface .app-body ul.body-tasks li.task i.task-options.bx-trash:hover {
+  color: #f53555;
+}
+
+.app-interface .app-body ul.body-tasks li.task i.task-options:last-child {
+  margin-left: 10px;
+}
+
+.app-interface .app-body ul.body-tasks li.task p {
+  width: 95%;
+  font-family: "Open sans", sans-serif;
+}
+
+.app-interface .app-body .body-taskbar {
+  margin-top: 12px;
+  color: #FFFFFF;
+  position: relative;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body .body-taskbar input#app-taskbar {
+  background: #11111140;
+}
+
+.app-interface .app-body .body-taskbar input#app-taskbar {
+  display: inline-block;
+  width: 100%;
+  background: #FFFFFF40;
+  backdrop-filter: blur(20px);
+  padding: 14px 28px;
+  padding-left: 46px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  color: #FFFFFF;
+  font-family: "Open sans", sans-serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+
+.app-interface .app-body .body-taskbar input#app-taskbar::placeholder {
+  color: #CCCCCD;
+}
+
+.app-interface .app-body .body-taskbar i#add-btn {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  font-size: 1.4em;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  text-align: center;
+  color: #FFFFFF;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  z-index: 99;
+  margin-left: 12px;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body .body-search {
+  background: #222223;
+}
+
+.app-interface .app-body .body-search {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 128;
+  background: #F9F9FA;
+}
+
+.app-interface .app-body .body-search.search-visible {
+  display: block;
+}
+
+.app-interface .app-body .body-search .search-barComponent {
+  padding: 12px 24px;
+  margin-top: 44px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body .body-search input#app-searchBar {
+  background: #333334;
+  border-color: #29292A;
+  color: #DDDDDE;
+}
+
+.app-interface .app-body .body-search input#app-searchBar {
+  display: inline-block;
+  width: calc(100% - 52px);
+  background: #FFFFFF;
+  padding: 8px 20px;
+  border: 1px solid #CCCCCD;
+  outline: none;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  color: #333334;
+  font-family: "Open sans", sans-serif;
+  font-size: 0.86em;
+  letter-spacing: 1px;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body .body-search input#app-searchBar:focus,
+.app-interface .app-body .body-search input#app-searchBar:focus {
+  border-color: #2B6EFF;
+}
+
+.app-interface .app-body .body-search .search-barComponent i#searchOptions {
+  font-size: 1.1em;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  text-align: center;
+  color: #99999A;
+  cursor: pointer;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body .body-search .search-barComponent i#searchOptions:hover {
+  background: #37373B;
+}
+
+.app-interface .app-body .body-search .search-barComponent i#searchOptions:hover {
+  background: #EEEEEF;
+}
+
+.app-interface .app-body .body-search .search-info {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -104%);
+  -webkit-transform: translate(-50%, -104%);
+  -moz-transform: translate(-50%, -104%);
+  -ms-transform: translate(-50%, -104%);
+  -o-transform: translate(-50%, -104%);
+  width: 100%;
+  text-align: center;
+}
+
+.app-interface .app-body .body-search img.search-img {
+  max-width: 128px;
+  margin: auto;
+}
+
+.app-framework.dark > .app-component .app-interface .app-body .body-search .search-info p {
+  color: #777778;
+}
+
+.app-interface .app-body .body-search .search-info p {
+  font-size: 0.98em;
+  color: #99999A;
+  font-weight: 200 !important;
+  letter-spacing: 0.86px;
+  font-family: "Average sans", sans-serif;
+  padding: 10px;
+}
+
+
+/* Settings Interface */
+
+.app-framework.dark > .app-component .settings-interface {
+  background: #1F1F20;
+}
+
+.settings-interface {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 138;
+  background: #FFFFFF;
+}
+
+.settings-interface.hidden {
+  display: none;
+}
+
+.app-framework.dark > .app-component .settings-interface .settings-head {
+  border-color: #333334;
+  background: #1F1F20;
+}
+
+.app-framework.dark > .app-component .settings-interface h2 {
+  color: #DDDDDE !important;
+}
+
+.settings-interface .settings-head {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 16px 24px;
+  background: #FFFFFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+}
+
+.settings-interface .settings-head h2 {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #333334;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+.app-framework.dark > .app-component .settings-interface .settings-head i#return-app {
+  color: #E9E9EA;
+}
+
+.settings-interface .settings-head i#return-app {
+  font-size: 1.2em;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.app-framework.dark > .app-component .settings-interface .settings-head i#return-app:hover {
+  background: #29292A;
+}
+
+.settings-interface .settings-head i#return-app:hover {
+  background: #F9F9FA;
+}
+
+.settings-interface .inner-settings {
+  /* border: 2px solid red; */
+  margin: 12px auto;
+  max-width: 680px;
+  margin-top: 68px;
+}
+
+.app-framework.dark > .app-component .settings-interface .inner-settings .account-settings {
+  border-color: #333334;
+}
+
+.settings-interface .inner-settings .account-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+  display: flex;
+}
+
+.settings-interface .inner-settings .account-info-settings {
+  width: calc(70% - 8px);
+  display: flex;
+  align-items: center;
+}
+
+.settings-interface .inner-settings .account-info-settings img {
+  width: 96px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.settings-interface .inner-settings .account-info-settings .account-info-s {
+  margin-left: 12px;
+}
+
+.settings-interface .inner-settings .account-info-settings .account-info-s h2 {
+  font-size: 1.6rem;
+  color: #222223;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+}
+
+.app-framework.dark > .app-component .settings-interface .inner-settings .account-info-settings .account-info-s p.email-s {
+  color: #CCCCCD;
+}
+
+.settings-interface .inner-settings .account-info-settings .account-info-s p.email-s {
+  font-size: 0.98rem;
+  color: #333334;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+  margin-top: 4px;
+}
+
+.settings-interface .inner-settings .accout-actions {
+  width: calc(30% - 8px);
+}
+
+.app-framework.dark > .app-component .settings-interface .inner-settings .accout-actions button {
+  background: #29292A;
+  color: #DDDDDE;
+}
+
+.settings-interface .inner-settings .accout-actions button {
+  width: 190px;
+  padding: 14px 20px;
+  border: none;
+  outline: none;
+  font-size: 0.96rem;
+  color: #222223;
+  font-family: "Verdana", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.settings-interface .inner-settings .accout-actions button:hover {
+  background: #E9E9EA;
+}
+
+.settings-interface .inner-settings .accout-actions button#manage-ac {
+  margin-bottom: 8px;
+}
+
+.settings-interface .inner-settings .accout-actions button#sign-out {
+  color: #FFFFFF;
+  background: #E6193F;
+}
+
+.settings-interface .inner-settings .accout-actions button#sign-out:hover {
+  background: #DA183C;
+}
+
+/* Import Settings */
+
+.settings-interface .import-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+}
+
+.app-framework.dark > .app-component .settings-interface .import-settings {
+  border-color: #333334;
+}
+
+.settings-interface .import-settings h2 {
+  font-size: 1.4rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.settings-interface .import-settings p {
+  font-size: 1rem;
+  color: #333334;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+}
+
+.app-framework.dark > .app-component .settings-interface p {
+  color: #CCCCCD !important;
+}
+
+.app-framework.dark > .app-component .settings-interface h4 {
+  color: #EEEEEF !important;
+}
+
+.settings-interface .import-settings p i {
+  font-size: 1.2rem;
+  color: #CA4534;
+  margin-right: 6px;
+}
+
+.settings-interface .import-settings button {
+  padding: 8px 56px;
+  border: none;
+  outline: none;
+  font-size: 0.96rem;
+  color: #FFFFFF;
+  background: #2B6EFF;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: 24px;
+}
+
+.settings-interface .import-settings button:hover {
+  background: #2969F1;
+}
+
+/* General Settings */
+
+.app-framework.dark > .app-component .general-settings {
+  border-color: #333334;
+}
+
+.settings-interface .general-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+}
+
+.settings-interface .general-settings h2 {
+  font-size: 1.4rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.settings-interface .general-settings .general-setting {
+  margin-bottom: 24px;
+}
+
+.settings-interface .general-settings .general-setting p {
+  font-size: 1.04rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+  margin-bottom: 12px;
+}
+
+.settings-interface .general-settings .general-setting input.toggle {
+  position: relative;
+  display: inline-block;
+  width: initial;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.app-framework.dark > .app-component .settings-interface input.radio::before,
+.app-framework.dark > .app-component .settings-interface input.toggle::before {
+  background: #575764 !important;
+}
+
+.app-framework.dark > .app-component .settings-interface input.radio:checked::before,
+.app-framework.dark > .app-component .settings-interface input.toggle:checked::before {
+  background: #2B6EFF !important;
+}
+
+
+.settings-interface .general-settings .general-setting input.toggle::after {
+  content: "";
+  position: absolute;
+  top: 4px !important;
+  left: 5px;
+  width: 14px;
+  height: 14px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  visibility: visible;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: all 0.15s ease-out !important;
+  -webkit-transition: all 0.15s ease-out !important;
+  -moz-transition: all 0.15s ease-out !important;
+  -ms-transition: all 0.15s ease-out !important;
+  -o-transition: all 0.15s ease-out !important;
+}
+
+.settings-interface .general-settings .general-setting input.toggle:checked::after {
+  left: 30px;
+}
+
+.settings-interface .general-settings .general-setting input.toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 22px;
+  background: #CCCCCD;
+  border-radius: 50px;
+  visibility: visible;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  transition: all 0.15s ease-out;
+}
+
+.settings-interface .general-settings .general-setting input.toggle:checked::before {
+  background: #2B6EFF;
+}
+
+.settings-interface .general-settings .general-setting span.toggle-info::before {
+  content: "Off";
+  margin-left: 44px;
+  position: relative;
+  top: 4px;
+  font-size: 0.96rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+}
+
+.settings-interface .general-settings .general-setting input.toggle:checked ~ span.toggle-info::before {
+  content: "On";
+}
+
+.settings-interface .general-settings p#taskBar-c {
+  font-size: 1.04rem;
+  color: #222223;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400; 
+  margin: 8px 0;
+  margin-top: 44px;
+}
+
+.settings-interface .general-settings button#pinTaskBar {
+  padding: 8px 16px;
+  border: none;
+  outline: none;
+  font-size: 0.94rem;
+  color: #FFFFFF;
+  background: #2B6EFF;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: 12px 0;
+}
+
+.settings-interface .general-settings button#pinTaskBar:hover {
+  background: #2969F1;
+}
+
+.settings-interface .general-settings p#keyboard-s {
+  font-size: 0.96rem;
+  color: #2B6EFF;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200;
+}
+
+/* Theme Settings */
+
+.app-framework.dark > .app-component .theme-settings {
+  border-color: #333334;
+}
+
+.settings-interface .theme-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+}
+
+.settings-interface .theme-settings h2 {
+  font-size: 1.4rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.settings-interface .theme-select .theme-s-b {
+  margin-bottom: 12px;
+  font-size: 1.04rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200;
+}
+
+.settings-interface .theme-select .theme-s-b input.radio {
+  position: relative;
+  display: inline-block;
+  width: initial;
+  visibility: hidden;
+  cursor: pointer;
+  margin-right: 12px;
+  top: -4px;
+}
+
+.settings-interface .theme-select .theme-s-b input.radio::after {
+  content: "";
+  position: absolute;
+  top: 6px !important;
+  left: 6px;
+  width: 10px;
+  height: 10px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  visibility: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%; 
+}
+
+.settings-interface .theme-select .theme-s-b input.radio:checked::after {
+  visibility: visible;
+}
+
+.settings-interface .theme-select .theme-s-b input.radio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background: #CCCCCD;
+  border-radius: 50px;
+  visibility: visible;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+.settings-interface .theme-select .theme-s-b input.radio:checked::before {
+  background: #2B6EFF;
+}
+
+/* Smart list Settings  */
+
+.app-framework.dark > .app-component .smartlist-settings {
+  border-color: #333334;
+}
+
+.settings-interface .smartlist-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+}
+
+.settings-interface .smartlist-settings h2 {
+  font-size: 1.4rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.settings-interface .smartlist-settings .smartlist-s {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.settings-interface .smartlist-settings .smartlist-s.s {
+  display: block;
+  margin-top: 44px;
+}
+
+.settings-interface .smartlist-settings .smartlist-s.s p {
+  margin-bottom: 12px;
+}
+
+.settings-interface .smartlist-settings .smartlist-s p {
+  display: inline-block;
+  font-size: 1.04rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+}
+
+.settings-interface .smartlist-settings .smartlist-s p i {
+  font-size: 1.4rem;
+  color: #2B6EFF;
+  margin-right: 12px;
+}
+
+.settings-interface .smartlist-settings .smartlist-s input.toggle {
+  position: relative;
+  display: inline-block;
+  width: initial;
+  visibility: hidden;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.settings-interface .smartlist-settings .smartlist-s input.toggle::after {
+  content: "";
+  position: absolute;
+  top: 4px !important;
+  left: 5px;
+  width: 14px;
+  height: 14px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  visibility: visible;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: all 0.15s ease-out !important;
+  -webkit-transition: all 0.15s ease-out !important;
+  -moz-transition: all 0.15s ease-out !important;
+  -ms-transition: all 0.15s ease-out !important;
+  -o-transition: all 0.15s ease-out !important;
+}
+
+.settings-interface .smartlist-settings .smartlist-s input.toggle:checked::after {
+  left: 30px;
+}
+
+.settings-interface .smartlist-settings .smartlist-s input.toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 22px;
+  background: #CCCCCD;
+  border-radius: 50px;
+  visibility: visible;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  transition: all 0.15s ease-out;
+}
+
+.settings-interface .smartlist-settings .smartlist-s input.toggle:checked::before {
+  background: #2B6EFF;
+}
+
+/* Connected apps settings */
+
+.app-framework.dark > .app-component .connected-apps-settings {
+  border-color: #333334;
+}
+
+.settings-interface .connected-apps-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+}
+
+.settings-interface .connected-apps-settings h2 {
+  font-size: 1.4rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.settings-interface .connected-apps-settings .c-settings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings-interface .connected-apps-settings .c-settings .c-c {
+  display: flex;
+  align-items: center;
+
+}
+
+.settings-interface .connected-apps-settings .c-settings .c-c i {
+  font-size: 1.4rem;
+  color: #2B6EFF;
+  margin-right: 12px;
+}
+
+.settings-interface .connected-apps-settings .c-settings .c-c h4 {
+  font-size: 1.04rem;
+  color: #111112;
+  font-family: "Open sans", sans-serif;
+  font-weight: 400;
+}
+
+.settings-interface .connected-apps-settings .c-settings .c-c p {
+  font-size: 0.96rem;
+  color: #333334;
+  font-family: "Average sans", sans-serif;
+  font-weight: 400;
+}
+
+.settings-interface .connected-apps-settings .c-settings input.toggle {
+  position: relative;
+  display: inline-block;
+  width: initial;
+  visibility: hidden;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.settings-interface .connected-apps-settings .c-settings input.toggle::after {
+  content: "";
+  position: absolute;
+  top: 4px !important;
+  left: 5px;
+  width: 14px;
+  height: 14px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  visibility: visible;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: all 0.15s ease-out !important;
+  -webkit-transition: all 0.15s ease-out !important;
+  -moz-transition: all 0.15s ease-out !important;
+  -ms-transition: all 0.15s ease-out !important;
+  -o-transition: all 0.15s ease-out !important;
+}
+
+.settings-interface .connected-apps-settings .c-settings input.toggle:checked::after {
+  left: 30px;
+}
+
+.settings-interface .connected-apps-settings .c-settings input.toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 22px;
+  background: #CCCCCD;
+  border-radius: 50px;
+  visibility: visible;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  transition: all 0.15s ease-out;
+}
+
+.settings-interface .connected-apps-settings .c-settings input.toggle:checked::before {
+  background: #2B6EFF;
+}
+
+.settings-interface .connected-apps-settings .c-settings span.toggle-info::before {
+  content: "Off";
+  position: relative;
+  top: 4px;
+  font-size: 0.96rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+}
+
+.settings-interface .connected-apps-settings .c-settings input.toggle:checked ~ span.toggle-info::before {
+  content: "On";
+}
+
+/* Notification settings */
+
+.app-framework.dark > .app-component .notification-settings {
+  border-color: #333334;
+}
+
+.settings-interface .notification-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+}
+
+.settings-interface .notification-settings h2 {
+  font-size: 1.4rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.settings-interface .notification-settings .notification-setting {
+  margin-bottom: 24px;
+}
+
+.settings-interface .notification-settings .notification-setting p {
+  font-size: 1.04rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+  margin-bottom: 8px;
+}
+
+.settings-interface .notification-settings .notification-setting input.toggle {
+  position: relative;
+  display: inline-block;
+  width: initial;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.settings-interface .notification-settings .notification-setting input.toggle::after {
+  content: "";
+  position: absolute;
+  top: 4px !important;
+  left: 5px;
+  width: 14px;
+  height: 14px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  visibility: visible;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: all 0.15s ease-out !important;
+  -webkit-transition: all 0.15s ease-out !important;
+  -moz-transition: all 0.15s ease-out !important;
+  -ms-transition: all 0.15s ease-out !important;
+  -o-transition: all 0.15s ease-out !important;
+}
+
+.settings-interface .notification-settings .notification-setting input.toggle:checked::after {
+  left: 30px;
+}
+
+.settings-interface .notification-settings .notification-setting input.toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 22px;
+  background: #CCCCCD;
+  border-radius: 50px;
+  visibility: visible;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  transition: all 0.15s ease-out;
+}
+
+.settings-interface .notification-settings .notification-setting input.toggle:checked::before {
+  background: #2B6EFF;
+}
+
+.settings-interface .notification-settings .notification-setting span.toggle-info::before {
+  content: "Off";
+  margin-left: 44px;
+  position: relative;
+  top: 4px;
+  font-size: 0.96rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+}
+
+.settings-interface .notification-settings .notification-setting input.toggle:checked ~ span.toggle-info::before {
+  content: "On";
+}
+
+/* Help and feedback settings */
+
+.app-framework.dark > .app-component .help-feedback-settings {
+  border-color: #333334;
+}
+
+.settings-interface .help-feedback-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+}
+
+.settings-interface .help-feedback-settings h2 {
+  font-size: 1.4rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.settings-interface .help-feedback-settings p.sync-failed {
+  font-size: 1.04rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+  margin-bottom: 8px;
+}
+
+.settings-interface .help-feedback-settings p.sync-failed.syncing ~ span.sync-time,
+.settings-interface .help-feedback-settings p.sync-failed.syncing {
+  display: none;
+}
+
+.settings-interface .help-feedback-settings p.sync-failed i {
+  font-size: 1.2rem;
+  color: #FFBE31;
+  margin-right: 6px;
+}
+
+.settings-interface .help-feedback-settings p.sync-failed.online i {
+  color: #5FE487;
+}
+
+.settings-interface .help-feedback-settings span.sync-time {
+  font-size: 1.04rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+  margin-bottom: 8px;
+  margin-left: 32px;
+}
+
+.app-framework.dark > .app-component .settings-interface .help-feedback-settings span.sync-time {
+  color: #CCCCCD
+}
+
+.settings-interface .help-feedback-settings button#sync-ac {
+  padding: 8px 36px;
+  border: none;
+  outline: none;
+  font-size: 0.94rem;
+  color: #FFFFFF;
+  background: #2B6EFF;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: 12px 0;
+  margin-top: 24px;
+}
+
+.settings-interface .help-feedback-settings button#sync-ac:hover {
+  background: #2969F1;
+}
+
+.settings-interface .help-feedback-settings button#sync-ac.syncing {
+  color: #FFFFFF94;
+}
+
+.app-framework.dark > .app-component .settings-interface .help-feedback-settings p.c-id,
+.app-framework.dark > .app-component .settings-interface .help-feedback-settings p.s-s {
+  color: #2B6EFF !important;
+}
+
+.settings-interface .help-feedback-settings p.c-id,
+.settings-interface .help-feedback-settings p.s-s {
+  font-size: 1.05rem;
+  color: #2B6EFF !important;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.app-framework.dark > .app-component .settings-interface .help-feedback-settings p.s-ss {
+  color: #9f9fa3 !important;
+}
+
+.settings-interface .help-feedback-settings p.s-ss {
+  font-size: 0.96rem;
+  color: #666667 !important;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+  margin-top: 8px;
+}
+
+p#CopyId {
+  display: inline-block;
+}
+
+.app-framework.dark > .app-component .settings-interface .help-feedback-settings p.clip-info {
+  color: #4c7ef1 !important;
+  background: #29292A !important;
+}
+
+.settings-interface .help-feedback-settings p.clip-info {
+  display: inline-block;
+  position: relative;
+  font-size: 0.96rem;
+  color: #4c7ef1;
+  background: #e8eefa;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200;
+  margin-top: 4px;
+  padding: 12px 0;
+  width: 420px;
+  text-align: center;
+  margin-left: 24px;
+  user-select: none;
+  opacity: 0;
+  transition: 0.15s all linear !important;
+  -webkit-transition: 0.15s all linear !important;
+  -moz-transition: 0.15s all linear !important;
+  -ms-transition: 0.15s all linear !important;
+  -o-transition: 0.15s all linear !important;
+}
+
+.settings-interface .help-feedback-settings p.clip-info.clipped {
+  opacity: 1;
+}
+
+.settings-interface .help-feedback-settings #userId {
+  opacity: 0;
+  user-select: none;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Connect settings */
+
+.app-framework.dark > .app-component .connect-settings {
+  border-color: #333334;
+}
+
+.settings-interface .connect-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+}
+
+.settings-interface .connect-settings h2 {
+  font-size: 1.4rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.app-framework.dark > .app-component .settings-interface .connect-settings a.out--link {
+  color: #CCCCCD;
+}
+
+.settings-interface .connect-settings a.out--link {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  margin-bottom: 12px;
+  padding-left: 0;
+  font-size: 1.24rem;
+  color: #333334;
+  font-family: "Average sans", sans-serif !important;
+  text-decoration: none;
+  transition: 0.15s all linear !important;
+  -webkit-transition: 0.15s all linear !important;
+  -moz-transition: 0.15s all linear !important;
+  -ms-transition: 0.15s all linear !important;
+  -o-transition: 0.15s all linear !important;
+}
+
+.app-framework.dark > .app-component .settings-interface .connect-settings a.out--link:hover {
+  color: #2B6EFF;
+}
+
+.settings-interface .connect-settings a.out--link:hover {
+  color: #2B6EFF;
+}
+
+.settings-interface .connect-settings a.out--link i {
+  font-size: 1.6rem;
+  margin-right: 12px;
+}
+
+.settings-interface .connect-settings a.out--link i.twitter {
+  color: #2790E6;
+}
+
+.settings-interface .connect-settings a.out--link i.instagram {
+  color: #F0234F;
+}
+
+.settings-interface .connect-settings a.out--link i.github {
+  color: #575764;
+}
+
+/* About settings */
+
+.app-framework.dark > .app-component .about-settings {
+  border-color: #333334;
+}
+
+.settings-interface .about-settings {
+  border-bottom: 1px solid #E9E9EA;
+  padding: 24px 0;
+}
+
+.settings-interface .about-settings h2 {
+  font-size: 1.4rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.app-framework.dark > .app-component p.out--link-n {
+  color: #2B6EFF !important;
+}
+
+.settings-interface .about-settings p.out--link-n {
+  display: block;
+  padding: 12px 24px;
+  margin-bottom: 12px;
+  padding-left: 0;
+  font-size: 1.05rem;
+  color: #2B6EFF;
+  font-family: "Average sans", sans-serif !important;
+  text-decoration: none;
+  transition: 0.15s all linear !important;
+  -webkit-transition: 0.15s all linear !important;
+  -moz-transition: 0.15s all linear !important;
+  -ms-transition: 0.15s all linear !important;
+  -o-transition: 0.15s all linear !important;
+  cursor: pointer;
+}
+
+.app-framework.dark > .app-component p.out--link-n:hover {
+  color: #2969F1 !important;
+}
+
+.settings-interface .about-settings p.out--link-n:hover {
+  color: #2969F1;
+}
+
+.settings-interface .about-setting {
+  margin-top: 24px;
+}
+
+.settings-interface .about-settings .about-setting p {
+  font-size: 1.04rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+  margin-bottom: 8px;
+}
+
+.settings-interface .about-settings .about-setting input.toggle {
+  position: relative;
+  display: inline-block;
+  width: initial;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.settings-interface .about-settings .about-setting input.toggle::after {
+  content: "";
+  position: absolute;
+  top: 4px !important;
+  left: 5px;
+  width: 14px;
+  height: 14px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  visibility: visible;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: all 0.15s ease-out !important;
+  -webkit-transition: all 0.15s ease-out !important;
+  -moz-transition: all 0.15s ease-out !important;
+  -ms-transition: all 0.15s ease-out !important;
+  -o-transition: all 0.15s ease-out !important;
+}
+
+.settings-interface .about-settings .about-setting input.toggle:checked::after {
+  left: 30px;
+}
+
+.settings-interface .about-settings .about-setting input.toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 22px;
+  background: #CCCCCD;
+  border-radius: 50px;
+  visibility: visible;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  transition: all 0.15s ease-out;
+}
+
+.settings-interface .about-settings .about-setting input.toggle:checked::before {
+  background: #2B6EFF;
+}
+
+.settings-interface .about-settings .about-setting span.toggle-info::before {
+  content: "Off";
+  margin-left: 44px;
+  position: relative;
+  top: 4px;
+  font-size: 0.96rem;
+  color: #222223;
+  font-family: "Average sans", sans-serif;
+  font-weight: 200; 
+}
+
+.settings-interface .about-settings .about-setting input.toggle:checked ~ span.toggle-info::before {
+  content: "On";
+}
+
+/* App information settings */
+
+.settings-interface .app-information {
+  padding: 24px 0;
+}
+
+.settings-interface .app-information h2 {
+  font-size: 1.15rem;
+  color: #111112;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.settings-interface .app-information p.legal-notes {
+  font-size: 1.02rem;
+  color: #575764;
+  font-family: "Average sans", sans-serif;
+  font-weight: 400;
+  margin: 8px 0;
+}
+
+.settings-interface .app-information p.version-notes {
+  font-size: 1rem;
+  color: #575764;
+  font-family: "Average sans", sans-serif;
+  font-weight: 400;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}

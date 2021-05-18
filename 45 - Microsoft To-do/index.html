@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Microsoft To-do</title>
+    <meta name="description" content="Organize your tasks and get things done right with Microsoft To-do.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/icons/To_Do.svg" type="image/x-icon">
+    <!-- App script css -->
+    <link rel="stylesheet" href="assets/app-scripts/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/app-scripts/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+
+    <!-- App Framework -->
+    <div class="app-framework">
+
+      <!-- loader -->
+      <div class="loader-container" id="loader">
+        <div class="loader-box">
+          <img class="loader-img" src="assets/img/icons/To_Do.svg" alt="Microsoft To-to">
+          <div class="ms-logo-box">
+            <img class="ms-logo" src="assets/img/icons/microsoft.svg" alt="Microsoft">
+          </div>
+        </div>
+        <div class="loader-spinner">
+          <div class="spinner-outer"></div>
+        </div>
+      </div>
+
+      <div class="app-component hidden">
+
+        <!-- app interface -->
+        <div class="app-interface">
+          <div class="app-sidebar">
+            <h2 class="app-s-title">Microsoft To Do</h2>
+            <div class="top-sidebar">
+              <div class="app-profile">
+                <div class="appuser-img">
+                  <img class="userimg" src="assets/img/app-bg/profile-img.jpg" alt="Code Ninja">
+                </div>
+                <div class="user-info">
+                  <h4 class="username">Code Ninja</h4>
+                  <p class="network-status"><i class="network-bubble" id="bubble"></i> </p>
+                  <ul class="userSetting">
+                    <li><i class="bi bi-person"></i> Manage Accounts</li>
+                    <li id="open-settings"><i class="bi bi-gear"></i> Settings</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="app-search">
+                <i class="bx bx-search" id="side-search"></i>
+              </div>
+            </div>
+            <ul class="taskbar-options">
+              <li><p><i class="bx bx-sun"></i> My Day</p></li>
+              <li><p><i class="bx bx-calendar-alt"></i> Important</p></li>
+              <li><p><i class="bx bx-user"></i> Assigned to you</p></li>
+              <li class="active"><p><i class="bi bi-house"></i> Tasks</p></li>
+            </ul>
+          </div>
+          <div class="app-body" id="app-body">
+            <div class="body-search">
+              <div class="search-barComponent">
+                <input type="text" name="Appsearch" id="app-searchBar" placeholder="Search">
+                <i class="bi bi-three-dots" id="searchOptions"></i>
+              </div>
+              <div class="search-info">
+                <img class="search-img" src="assets/img/app-bg/satellite.svg" alt="search-img">
+                <p>What would you like to find? You can search within tasks, steps and notes</p>
+              </div>
+            </div>
+            <div class="body-head">
+              <div class="head-title">
+                <p><i class="bi bi-house"></i> Tasks</p>
+              </div>
+              <div class="head-option">
+                <i class="bi bi-three-dots"></i>
+              </div>
+            </div>
+            <ul class="body-tasks">
+              <!-- <li class="task">
+                <div class="task-inner">
+                  <i class="task-options bi bi-circle"></i>
+                  <p>I am a task</p>
+                  <i class="task-options bi bi-star"></i>
+                  <i class="task-options bx bx-trash"></i>
+                </div>
+              </li> -->
+            </ul>
+            <div class="body-taskbar">
+              <i class="bi bi-plus" id="add-btn"></i>
+              <input type="text" name="app-taskbar-a" id="app-taskbar" class="body-task" placeholder="Add a task">
+            </div>
+          </div>
+        </div>
+
+        <!-- App settings interface -->
+        <div class="settings-interface hidden">
+          <div class="settings-head">
+            <i class="bx bx-arrow-back" id="return-app"></i>
+            <h2>Settings</h2>
+          </div>
+          <div class="inner-settings">
+            <!-- Accounts Settings -->
+            <div class="account-settings">
+              <div class="account-info-settings">
+                <img src="assets/img/app-bg/profile-img.jpg" alt="Code Ninja">
+                <div class="account-info-s">
+                  <h2 class="settings-ac-n">Code Ninja</h2>
+                  <p class="email-s">CodeNinjaio@gmail.com</p>
+                </div>
+              </div>
+              <div class="accout-actions">
+                <button id="manage-ac">Manage account</button>
+                <button id="sign-out">Sign out</button>
+              </div>
+            </div>
+
+            <!-- Import Settings -->
+            <div class="import-settings">
+              <h2>Import from Wunderlist</h2>
+              <p><i class="bi bi-journal-bookmark-fill"></i> Import your lists and tasks</p>
+              <button id="import-s">Import</button>
+            </div>
+
+            <!-- General Settings -->
+            <div class="general-settings">
+              <h2>General</h2>
+
+              <div class="general-setting">
+                <p>Add new tasks on top</p>
+                <div class="toggle-set">
+                  <input type="checkbox" name="newtsk" class="toggle" checked>
+                  <span class="toggle-info"></span>
+                </div>
+              </div>
+
+              <div class="general-setting">
+                <p>Move starred tasks to the top</p>
+                <div class="toggle-set">
+                  <input type="checkbox" name="newtsk" class="toggle" checked>
+                  <span class="toggle-info"></span>
+                </div>
+              </div>
+
+              <div class="general-setting">
+                <p>Play completion sound</p>
+                <div class="toggle-set">
+                  <input type="checkbox" name="newtsk" class="toggle">
+                  <span class="toggle-info"></span>
+                </div>
+              </div>
+
+              <div class="general-setting">
+                <p>Confirm before deleting</p>
+                <div class="toggle-set">
+                  <input type="checkbox" name="newtsk" class="toggle" checked>
+                  <span class="toggle-info"></span>
+                </div>
+              </div>
+
+              <p id="taskBar-c">You can pin this app to taskbar for quick access</p>
+              <button id="pinTaskBar">Pin to taskbar</button>
+              <p id="keyboard-s">Keyboard shortcuts</p>
+
+            </div>
+
+            <!-- Theme settings -->
+            <div class="theme-settings">
+              <h2>Theme</h2>
+
+              <div class="theme-select">
+                <p class="theme-s-b">
+                  <input type="radio" name="theme-app" class="radio" checked id="lightTheme"> Light
+                </p>
+                <p class="theme-s-b">
+                  <input type="radio" name="theme-app" class="radio" id="darkTheme"> Dark
+                </p>
+                <p class="theme-s-b">
+                  <input type="radio" name="theme-app" class="radio"> Use my Windows theme
+                </p>
+              </div>
+            </div>
+
+            <!-- Smartlist settings -->
+            <div class="smartlist-settings">
+              <h2>Smart lists</h2>
+
+              <div class="smartlist-s">
+                <p><i class="bi bi-star"></i> Important</p>
+                <input type="checkbox" name="newtsk" class="toggle" checked>
+              </div>
+
+              <div class="smartlist-s">
+                <p><i class="bi bi-calendar4"></i> Planned</p>
+                <input type="checkbox" name="newtsk" class="toggle" checked>
+              </div>
+
+              <div class="smartlist-s">
+                <p><i class="bi bi-check-circle"></i> Completed</p>
+                <input type="checkbox" name="newtsk" class="toggle">
+              </div>
+
+              <div class="smartlist-s">
+                <p><i class="bx bx-infinite"></i> All</p>
+                <input type="checkbox" name="newtsk" class="toggle">
+              </div>
+
+              <div class="smartlist-s">
+                <p><i class="bx bx-user"></i> Assigned to you</p>
+                <input type="checkbox" name="newtsk" class="toggle" checked>
+              </div>
+
+              <div class="smartlist-s s">
+                <p>Auto-hide empty smart lists</p>
+                <input type="checkbox" name="newtsk" class="toggle">
+              </div>
+            </div>
+
+            <!-- Connected apps settings -->
+            <div class="connected-apps-settings">
+              <h2>Connected apps</h2>
+              <div class="c-settings">
+                <div class="c-c">
+                  <i class="bi bi-flag"></i>
+                  <div class="c-t">
+                    <h4>Flagged email</h4>
+                    <p>Tasks from messages you've flagged</p>
+                  </div>
+                </div>
+                <div class="toggle-set">
+                  <input type="checkbox" name="newtsk" class="toggle" checked>
+                  <span class="toggle-info"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Notification settings -->
+            <div class="notification-settings">
+
+              <h2>Notifications</h2>
+
+              <div class="notification-setting">
+                <p>Reminders</p>
+                <div class="toggle-set">
+                  <input type="checkbox" name="newtsk" class="toggle" checked>
+                  <span class="toggle-info"></span>
+                </div>
+              </div>
+
+              <div class="notification-setting">
+                <p>Shared list activity</p>
+                <div class="toggle-set">
+                  <input type="checkbox" name="newtsk" class="toggle" checked>
+                  <span class="toggle-info"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Help settings -->
+            <div class="help-feedback-settings">
+              <h2>Help & feedback</h2>
+              <div class="sync-status">
+                <p class="sync-failed"><i class="bi bi-exclamation-circle"></i> Your offline. Please check your internet connection and try again.</p>
+                <span class="sync-time">Last successful sync: -</span>
+              </div>
+              <button id="sync-ac">Sync</button>
+              <p class="s-s">Get support</p>
+              <p class="s-s">Suggest a feature</p>
+              <p class="s-ss">Powered by UserVoice - UserVoice terms apply</p>
+              <p class="s-s">Rate us</p>
+              <p class="c-id" id="CopyId">Copy Session and User ID</p>
+              <p class="clip-info">Copied to clipboard</p>
+              <textarea id="userId">Version: 2.27.2009.22002; SessionId: ded2368d-b7b4-4fcf-9fb5-884ea52e43b4; UserId: f7f8445aa53a7b51</textarea>
+            </div>
+
+            <!-- Connect settings -->
+            <div class="connect-settings">
+              <h2>Connect</h2>
+
+              <a href="https://www.twitter.com/@15CodeNinja" target="_blank" rel="noreferrer" class="out--link"><i class="bx bxl-twitter twitter"></i> Twitter</a>
+              <a href="https://www.instagram.com/@CodeNinja15" target="_blank" rel="noreferrer" class="out--link"><i class="bx bxl-instagram instagram"></i> Instagram</a>
+              <a href="https://www.github.com/CodeNinja-tech" target="_blank" rel="noreferrer" class="out--link"><i class="bx bxl-github github"></i> Github</a>
+            </div>
+
+            <!-- About settings -->
+            <div class="about-settings">
+
+              <h2>About</h2>
+
+              <p class="out--link-n"> Privacy</a>
+              <p class="out--link-n">Export your content</a>
+              <p class="out--link-n"> Microsoft Software License Terms</a>
+              <p class="out--link-n">Third party notices</a>
+
+              <div class="about-setting">
+                <p>Send usage data to Microsoft to imporove the service</p>
+                <div class="toggle-set">
+                  <input type="checkbox" name="newtsk" class="toggle" checked>
+                  <span class="toggle-info"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- App information -->
+            <div class="app-information">
+              <h2>Microsoft To-Do</h2>
+              <p class="legal-notes"><i class="bx bx-copyright"></i> <span id="year"></span> Microsoft. All rights reserved.</p>
+              <p class="version-notes">Version 04.14.21</p>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    <!-- Script File -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
